@@ -19,3 +19,20 @@
 -HTTPs
 -Tree shaking - remove unusedcode
 -Different dev and prod bundles
+
+#App building structure
+
+
+  -Header
+   -logo
+   -nav-items
+  -Body
+   -Search
+   -Reastuarant card container
+   reastuarant card
+  -Footer
+   -copyright
+   -Address
+   -links
+   -Other details
+ 
