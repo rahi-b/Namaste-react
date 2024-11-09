@@ -48,7 +48,7 @@
 }
 .filter-btn{
     padding: 5px;
-    margin: 5px 20px;
+    margin: 5px 10px;
     cursor: pointer;
 }
 .shimmer-container{
@@ -70,5 +70,5 @@
     display: flex;
 }
 .search-inp{
-    padding:0 20px;
+    margin: 20px 0;
 }

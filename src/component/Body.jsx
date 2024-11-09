@@ -18,9 +18,11 @@ const Body= () =>{
         const data =await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.91850&lng=76.25580&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
 
         const jsonData= await data.json();
-        console.log(jsonData);
-        setListOfRestaurant(jsonData?.data?.cards[1]?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurant(jsonData?.data?.cards[1]?.card?.gridElements?.infoWithStyle?.restaurants)
+
+        console.log(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants );
+
+        setListOfRestaurant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     return listOfRestaurants === 0 ? (<Shimmer /> ): 
@@ -45,7 +47,7 @@ const Body= () =>{
                 onClick ={()=>{
                     const filterList= listOfRestaurants.filter(
                         (res)=> res.info.avgRating >4 );
-                        setListOfRestaurant(filterList);
+                        setFilteredRestaurant(filterList);
                 }
                 }>
                     Top Rated Restaurant
@@ -53,7 +55,7 @@ const Body= () =>{
             </div>
             <div className="res-cardcontainer">
                 {
-                    filteredRestaurant?.map((restaurant) => <ResuartCard key={restaurant.info.id} resData={restaurant} />)
+                    filteredRestaurant.map((restaurant) => <ResuartCard key={restaurant.info.id} resData={restaurant} />)
                 } 
                 
             </div>
