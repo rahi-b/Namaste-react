@@ -10,7 +10,7 @@ class UserClass extends React.Component{
             }
             
         }
-        // console.log('child constructor');
+        console.log('child constructor');
     }
      async componentDidMount(){
 
@@ -23,7 +23,7 @@ class UserClass extends React.Component{
 
         console.log(json);
 
-        // console.log('child didMount');
+        console.log('child didMount');
     }
 
     componentDidUpdate(){
@@ -35,7 +35,7 @@ class UserClass extends React.Component{
     }
     render(){
         const {name,location,avatar_url}=this.state.userInfo;
-        // console.log('child render');
+        console.log('child render');
         return(
             <div className="user-card">
             
