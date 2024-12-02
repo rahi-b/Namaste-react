@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/userContext";
+
 
 const ResuartCard= (props)=>{
+
+    const {loggedInUser} =useContext(UserContext)
     const {resData}= props;
     const {
         cloudinaryImageId,
@@ -21,9 +26,21 @@ const ResuartCard= (props)=>{
             <p>{resData.info.sla.deliveryTime} minutes</p>
             <h5>{cuisines.join(" , ")}</h5>
             <h5>{areaName}</h5>
+            <h5> User : {loggedInUser}</h5>
             
         </div>
-    )
+    ) 
+}
+
+export const withPromotodLabel =(ResuartCard)=>{
+    return(props)=>{
+        return(
+            <div>
+                <Label className="absolute p-2 m-2 bg-black text-white rounded-lg">Promoted</Label>
+                <ResuartCard {...props} />
+            </div>
+        )
+    }
 }
 
 export default ResuartCard;
